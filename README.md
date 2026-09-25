@@ -1,5 +1,7 @@
 # 📏 Prognoseintervalle – wie sicher ist die Prognose?
 
+**[→ Demo live ausprobieren](https://sebastianhanisch-forecast-interval-demo.streamlit.app/)**
+
 Siebtes Stück der **Zeitreihen-Prognose-Linie** der "Konzepte"-Reihe im Portfolio von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning. Nachfolger des [Boostings mit Lag-Merkmalen](https://github.com/sebastian-hanisch/boosting-forecast-demo): dort ging es um die Punktprognose, hier um die Frage, **wie weit der Ist-Wert davon abweichen darf**.
 Geplant sind vier weitere Stücke (Hierarchische Abstimmung, Kombination, Prognose → Bestand, ein vortrainiertes Netz; noch nicht gebaut).
 
