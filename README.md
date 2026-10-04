@@ -3,7 +3,7 @@
 **[→ Demo live ausprobieren](https://sebastianhanisch-forecast-interval-demo.streamlit.app/)**
 
 Siebtes Stück der **Zeitreihen-Prognose-Linie** der "Konzepte"-Reihe im Portfolio von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning. Nachfolger des [Boostings mit Lag-Merkmalen](https://github.com/sebastian-hanisch/boosting-forecast-demo): dort ging es um die Punktprognose, hier um die Frage, **wie weit der Ist-Wert davon abweichen darf**.
-Geplant sind vier weitere Stücke (Hierarchische Abstimmung, Kombination, Prognose → Bestand, ein vortrainiertes Netz; noch nicht gebaut).
+Vier weitere Stücke folgen in der Linie (Hierarchische Abstimmung, Kombination, Prognose → Bestand, ein vortrainiertes Netz; alle gebaut).
 
 Eine Punktprognose sagt "morgen 120 Aufträge" und schweigt darüber, ob 100 oder 160 noch normal sind. Ein **Prognoseintervall** mit der Nennabdeckung 80 % verspricht, dass vier von fünf Ist-Werten hineinfallen. Die Demo nimmt die Punktprognosen der Vorgänger (Holt-Winters, Regression, Wochenmittel) auf einem **Portfolio von Depots** und macht daraus Intervalle auf **fünf Arten**:
 mit der **Normalverteilung** (roh und im Log), mit den **Fehlern der Trainingstage** und mit **konformer Kalibrierung** an den zuletzt realisierten Fehlern (fest und adaptiv, ACI). Geprüft wird, **ob die Intervalle halten, was ihre Nennabdeckung verspricht** – im Mittel, je Wochentag, je Horizont, im Zeitverlauf und je Depot –, und was das an Breite kostet.
@@ -105,3 +105,7 @@ streamlit run app.py
 ```
 
 Gebaut mit Streamlit, Plotly und numpy (Gegenprobe im Test: scipy).
+
+---
+
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Zeitreihen-Prognose: von Naiv bis Vortraining](https://sebastianhanisch.net/konzepte-zeitreihen-prognose.html).
