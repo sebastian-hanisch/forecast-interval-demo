@@ -72,7 +72,7 @@ Die Preset-Zeilen sind **Einzelportfolios** (Seed 3); belastbar sind die Zeilen 
 
 ## Tests
 
-Pytest-Suite (`pytest tests/ -v`, 59 Tests, rund eine Minute): die Verfahren von Hand und gegen eine unabhängige Schleife und `scipy` (Indizes der Endlichkeitskorrektur, Monte-Carlo-Abdeckung, ACI-Schritt, log-normale Quantile), Eigenschaften (kein Blick in die Zukunft, Monotonie, Orakel kalibriert und am besten), das Portfolio (Wechsel wirkt nur nach Tag 900, Ausreißer verdicken die Enden), Kennzahlen von Hand, Aufschlüsselungen, Preset- und Permalink-Klemmen,
+Pytest-Suite (`pytest tests/ -v`, 62 Tests, rund eine Minute): die Verfahren von Hand und gegen eine unabhängige Schleife und `scipy` (Indizes der Endlichkeitskorrektur, Monte-Carlo-Abdeckung, ACI-Schritt, log-normale Quantile), Eigenschaften (kein Blick in die Zukunft, Monotonie, Orakel kalibriert und am besten), das Portfolio (Wechsel wirkt nur nach Tag 900, Ausreißer verdicken die Enden), Kennzahlen von Hand, Aufschlüsselungen, Preset- und Permalink-Klemmen,
 AppTest-Rauchtests (Standard, jedes Preset, Depot- und Ursprungs-Regler, Extremwerte, drei Experimente auf Abruf, keine unaufgelösten Platzhalter) und `test_claims.py` (jede Zahl aus diesem README und aus den Preset-Hinweisen mit Bändern und Rangfolgen).
 
 ## Dateistruktur
