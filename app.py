@@ -52,6 +52,17 @@ Die Demo nimmt die Punktprognosen der Vorgänger (Holt-Winters, Regression, Woch
 Geprüft wird, was zählt: **halten die Intervalle ihr Versprechen** - im Mittel, je Wochentag, je Horizont, im Zeitverlauf und je Depot? Und was kostet eine ehrliche Abdeckung an Breite? Alle Daten sind erzeugt; die Rechnung ist in numpy geschrieben.
 """
 )
+
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/forecast-interval-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Eine Prognose nennt eine einzelne Zahl, etwa die Aufträge von morgen. Planen kann man damit erst, wenn man weiß, wie weit der echte Wert daneben liegen darf. Dafür gibt es einen Bereich um die Prognose, das **Prognoseintervall**, mit einer versprochenen Trefferquote. Die Demo baut diesen Bereich auf fünf Arten: aus der Normalverteilung, aus den Fehlern der Übungsphase und aus den zuletzt gemessenen Fehlern, auch nachgeführt. Dann zählt sie nach, ob die Bereiche ihr Versprechen halten: im Mittel, je Wochentag, je Horizont und nach einem Wechsel der Schwankungen. Ehrliche Bereiche kosten Breite. Alle Daten sind erzeugt.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/forecast-interval-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
 st.caption(
     "Siebtes Stück der **Zeitreihen-Prognose-Linie** der \"Konzepte\"-Reihe. **Bezug zu OR:** Sicherheitsbestände, Personalreserven und Kapazitätspuffer folgen aus Quantilen der Prognose, nicht aus dem Punktwert; "
     "das Bestands-Stück der Linie nimmt diese Quantile auf."
@@ -272,6 +283,25 @@ st.caption("Die Linie: Naive Prognose → Exponentielle Glättung → ARIMA → 
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/forecast-interval-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind die Tageswerte $y$ mehrerer Depots und für jeden Tag eine Punktprognose $F$. Gesucht ist zu jeder Prognose ein Bereich, der den Ist-Wert mit der gewählten Nennabdeckung enthält, und die Antwort, ob die Bereiche diese Abdeckung wirklich erreichen.
+
+| Symbol | Bedeutung |
+|---|---|
+| $y$, $F$ | Ist-Wert und Punktprognose eines Tages |
+| $s$, $q$ | Fehler als Log-Verhältnis von Ist zu Prognose, Quantil dieser Fehler |
+| $\tau$, $z$ | Quantilstufe, Quantil der Standardnormalverteilung zu dieser Stufe |
+| $\sigma$, $\sigma_{\log}$ | Streuung der Ein-Schritt-Fehler roh, Streuung der Ein-Schritt-Fehler im Log |
+| $m$, $W$ | Zahl der Fehler im Kalibrierfenster, Länge des Fensters (Ursprünge) |
+| $k$ | Prognosehorizont in Tagen |
+| $\alpha$, $\alpha_k$, $\gamma$ | Ziel-Fehlerrate (eins minus Nennabdeckung), nachgeführte Fehlerrate je Horizont, Schrittweite |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/forecast-interval-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Fehler.** $s = \log\frac{y+1}{F+1}$; Prognosequantil zur Stufe $\tau$: $Q_\tau = \max\big((F+1)\,e^{q_\tau} - 1,\ 0\big)$. Ein zentrales Intervall mit Nennabdeckung $p$ nimmt die Stufen $\tau_\ell = (1-p)/2$ und $\tau_u = 1 - \tau_\ell$.
